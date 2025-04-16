@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  # Сервис для PostgreSQL
+  redis-bot:
+    image: redis:latest      # Имя базы данных # Тома для хранения данных PostgreSQL
+    ports:
+      - "6379:6379"  # Открываем порт PostgreSQL для подключения извне
+
+  postgres-bot:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: myuser            # Имя пользователя для базы данных
+      POSTGRES_PASSWORD: mypassword    # Пароль для пользователя
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5434:5432"
